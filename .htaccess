@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9_-]+)$ pagecontroller.php?pagecontrol=$1
+RewriteRule ^p/(.*)/([0-9]+) pagecontroller.php?pagecontrol=$1&cusx=$2 
+# Basic "name" to "name.php" conversion
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]
+
+
+ErrorDocument 404 http://localhost/portal/oops.php
